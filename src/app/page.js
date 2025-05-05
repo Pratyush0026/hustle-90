@@ -1,4 +1,5 @@
 // app/page.js
+import MVPComponent from '@/components/MVPComponent';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
 
@@ -7,6 +8,7 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
+      <MVPComponent/>
     </main>
   );
 }
