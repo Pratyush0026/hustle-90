@@ -5,6 +5,8 @@ import Hero from '../components/Hero';
 import MVPComponent2 from '@/components/MVPComponent2';
 import PricingComponent from '@/components/PricingComponent';
 import TestimonialsSection from '@/components/Testimonials';
+import FAQSection from '@/components/FAQSection';
+import MarqueeSection from '@/components/MarqueeSection';
 
 export default function Home() {
   return (
@@ -15,6 +17,8 @@ export default function Home() {
       <MVPComponent2/>
       <PricingComponent/>
       <TestimonialsSection/>
+      <FAQSection/>
+      <MarqueeSection/>
     </main>
   );
 }
