@@ -7,6 +7,8 @@ import PricingComponent from '@/components/PricingComponent';
 import TestimonialsSection from '@/components/Testimonials';
 import FAQSection from '@/components/FAQSection';
 import MarqueeSection from '@/components/MarqueeSection';
+import "./globals.css";
+
 
 export default function Home() {
   return (
