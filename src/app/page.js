@@ -8,6 +8,7 @@ import TestimonialsSection from '@/components/Testimonials';
 import FAQSection from '@/components/FAQSection';
 import MarqueeSection from '@/components/MarqueeSection';
 import "./globals.css";
+import Footer from '@/components/Footer';
 
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <TestimonialsSection/>
       <FAQSection/>
       <MarqueeSection/>
+      <Footer/>
     </main>
   );
 }
