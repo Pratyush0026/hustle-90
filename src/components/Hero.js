@@ -96,7 +96,7 @@ const Hero = () => {
         <div className="absolute inset-0 bg-gradient-to-r from-orange-200/70 to-orange-500/70 z-0"></div>
       </div>
       
-      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 lg:px-8 text-center">
+      {/* <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 lg:px-8 text-center">
         <div className="max-w-6xl mx-auto pt-24">
           <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight">
             MVP. Investor Ready.<br />
@@ -113,7 +113,32 @@ const Hero = () => {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
+      
+
+      <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 md:px-6 lg:px-8 text-center">
+  <div className="max-w-6xl mx-auto pt-24">
+    <h1 className="text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 leading-tight">
+      Idea <span className="text-black">→</span> Investor Ready<br />
+      MVP in <span className="text-black">90 Days</span>
+    </h1>
+
+    <p className="mt-8 text-lg md:text-2xl text-black max-w-6xl mx-auto">
+      Your Startup Doesn’t Need More Chaos It Needs Outcomes. We Take You From Napkin Sketch <br />
+      To Demo Day Ready MVP With Battle Tested Systems, AI-Driven Speed, And Full-Stack Execution.
+    </p>
+
+    <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mt-12">
+      <Link href="/get-started" className="bg-gray-900 hover:bg-gray-800 px-10 py-4 rounded-lg font-medium transition-colors duration-300 w-full sm:w-auto text-center">
+        <ShinyText text="Start Now" isLight={true} />
+      </Link>
+      <Link href="/roadmap" className="bg-transparent border border-gray-900 hover:bg-gray-900/10 px-10 py-4 rounded-lg font-medium transition-colors duration-300 w-full sm:w-auto text-center">
+        <ShinyText text="View Roadmap" isLight={false} />
+      </Link>
+    </div>
+  </div>
+</div>
+
     </section>
   );
 };
