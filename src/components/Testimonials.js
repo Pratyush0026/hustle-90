@@ -10,37 +10,37 @@ const TestimonialsSection = () => {
 const testimonials = [
   {
     id: 1,
-    name: "Gibson",
-    handle: "@gibsons_memory",
-    text: "Reactbits.dev has got to be the most fantastic UI component lib I've seen in a while 🔥",
+    name: "Sarah Johnson",
+    handle: "@sarah_johnson_tech",
+    text: "Hustle 90 transformed the way we approach product. The roadmap, insights, and execution made it feel like we had a full-time CTO without the equity loss.",
     avatar: "/assets/2.jpg"
   },
   {
     id: 2,
-    name: "Virag",
-    handle: "@virag_ky",
-    text: "This is so cool - animated components collection 🤩🔥",
+    name: "Michael Chen",
+    handle: "@mchen_ventures",
+    text: "The 90-day timeline seemed impossible at first, but they delivered exactly what we needed to secure our next funding round.",
     avatar: "/assets/24.jpg"
   },
   {
     id: 3,
-    name: "Rui",
-    handle: "@Logreg_n_coffee",
-    text: "Literally the coolest react library in React",
+    name: "Aisha Patel",
+    handle: "@aisha_builds",
+    text: "Worth every penny. Our MVP is not just functional but actually impressive to investors.",
     avatar: "/assets/91.jpg"
   },
   {
     id: 4,
-    name: "Vollhard",
-    handle: "@0xVollhard",
-    text: "This website is reactbits.dev. Thank me later devs",
+    name: "David Rodriguez",
+    handle: "@david_rod",
+    text: "If you're debating whether to use Hustle 90, just do it. Best decision we made for our early-stage company.",
     avatar: "/assets/26.jpg"
   },
   {
     id: 5,
-    name: "Deepam Makwana",
-    handle: "@DM",
-    text: "Really impressed by reactbits.dev. Check it out.",
+    name: "Emma Williams",
+    handle: "@emma_startup",
+    text: "The fixed pricing model removed so much stress from the development process. No surprises, just results.",
     avatar: "/assets/71.jpg"
   }
 ];
@@ -104,12 +104,12 @@ const testimonials = [
       <div className="container mx-auto px-4 relative z-10">
         {/* Heading */}
         <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-7xl font-bold text-white mb-4">
-            Here's what others are saying
+          <h2 className="text-5xl md:text-7xl font-semibold text-white mb-4">
+       What Founders Are Saying
           </h2>
-          <p className="text-xl text-white/80">
-            They think React Bits is cool, maybe you will too!
-          </p>
+          {/* <p className="text-xl text-white/80">
+           What Founders Are Saying
+          </p> */}
         </div>
 
         {/* Testimonial Cards Carousel */}

@@ -4,7 +4,6 @@ import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 const MarqueeSection = () => {
-  // Add the keyframes to the document for the gradient animation
   useEffect(() => {
     const styleEl = document.createElement('style');
     styleEl.innerHTML = `
@@ -24,11 +23,10 @@ const MarqueeSection = () => {
     };
   }, []);
 
-  // GradientText component defined inline - exactly as in your docs
   const GradientText = ({
     children,
     className = "",
-    colors = ["#ffaa40", "#9c40ff", "#ffaa40"],
+    colors = ["#ff8a00", "#ff4d00", "#ff2b00"],
     animationSpeed = 8,
     showBorder = false,
   }) => {
@@ -76,20 +74,22 @@ const MarqueeSection = () => {
     );
   };
 
-  // Create a duplicated array to ensure continuous animation
   const marqueeText = [
-    "Already Behind.",
     "You're Not Early.",
     "You're Already Behind.",
     "You're Not Early.",
     "You're Already Behind.",
     "You're Not Early.",
     "You're Already Behind.",
-    "You're Not Early."
+    "You're Not Early.",
+     "You're Already Behind.",
+    "You're Not Early.",
+     "You're Already Behind.",
+    "You're Not Early.",
   ];
 
-  // Use the provided colors
-  const colors = ["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"];
+const colors = ["#ffdd00", "#ffaa00", "#ff8800", "#ffaa00", "#ffdd00"];
+
   
   const animationSpeed = 3; // Much faster than 3
 

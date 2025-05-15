@@ -6,33 +6,33 @@ import { motion, AnimatePresence } from 'framer-motion';
 const FAQSection = () => {
   const [openIndex, setOpenIndex] = useState(1);
 
-  const faqs = [
-    {
-      id: 1,
-      question: 'What is Fluence AI?',
-      answer: 'Fluence AI is an advanced artificial intelligence platform designed to streamline data processing, automate tasks, and provide powerful analytics capabilities for businesses of all sizes.'
-    },
-    {
-      id: 2,
-      question: 'Can I integrate Fluence AI with my existing tools?',
-      answer: 'Yes! Fluence AI supports integration with a wide range of tools and platforms. Our flexible APIs allow you to connect with your data sources effortlessly, enabling a smooth workflow.'
-    },
-    {
-      id: 3,
-      question: 'How does Fluence AI automate tasks?',
-      answer: 'Fluence AI uses machine learning algorithms to understand, learn, and automate repetitive tasks. It analyzes patterns in your workflow and suggests automations that can save time and reduce errors.'
-    },
-    {
-      id: 4,
-      question: 'Is my data secure with Fluence AI?',
-      answer: 'Absolutely. We employ enterprise-grade encryption, regular security audits, and strict access controls to ensure your data remains protected. We comply with major security standards including GDPR, SOC 2, and more.'
-    },
-    {
-      id: 5,
-      question: 'What kind of support do you offer?',
-      answer: 'We provide 24/7 technical support, comprehensive documentation, video tutorials, and a dedicated customer success manager for enterprise plans. Our team is always ready to help you get the most out of Fluence AI.'
-    }
-  ];
+const faqs = [
+  {
+    id: 1,
+    question: 'What is Hustle 90?',
+    answer: 'Hustle 90 is a fixed-fee startup execution service that takes your idea from concept to investor-ready MVP in just 90 days. We combine technical expertise, startup experience, and a proven roadmap to help founders launch faster without the equity dilution of hiring a full team.'
+  },
+  {
+    id: 2,
+    question: 'Can I integrate custom AI/ML features?',
+    answer: 'Yes! We specialize in AI integration and can build custom machine learning features into your MVP. Whether you need natural language processing, computer vision, or predictive analytics, our team can implement these as part of your Pro package or as an add-on to other plans.'
+  },
+  {
+    id: 3,
+    question: 'Whats the actual 90-day roadmap?',
+    answer: 'Our 90-day roadmap consists of three phases: Discovery (Days 1-15), where we refine requirements and create technical specs; Build (Days 16-75), where we develop the core MVP and iterate based on feedback; and Launch Prep (Days 76-90), where we finalize the product, prepare pitch materials, and set up analytics for investor meetings.'
+  },
+  {
+    id: 4,
+    question: 'How do I know if Hustle 90 is right for me?',
+    answer: 'Hustle 90 is ideal for founders who have a clear vision but need technical execution help, are preparing for fundraising, or want to validate their concept quickly without hiring a full team. We offer free consultation calls to discuss your specific needs and determine if our approach aligns with your goals.'
+  },
+  {
+    id: 5,
+    question: 'Can my team scale with Hustle 90 post-launch?',
+    answer: 'Absolutely. Many founders continue with our post-launch support packages after the initial 90 days. We can provide ongoing development, maintenance, feature expansion, and technical advisory services to help you scale until youre ready to build your in-house team.'
+  }
+];
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -55,19 +55,19 @@ const FAQSection = () => {
               whileHover={{ y: -5 }}
               className="w-12 h-12 rounded-full border-2 border-white overflow-hidden"
             >
-              <img src="/api/placeholder/48/48" alt="Team member" className="w-full h-full object-cover" />
+              <img src="/assets/2.jpg" alt="Team member" className="w-full h-full object-cover" />
             </motion.div>
             <motion.div 
               whileHover={{ y: -5 }}
               className="w-12 h-12 rounded-full border-2 border-white overflow-hidden" 
             >
-              <img src="/api/placeholder/48/48" alt="Team member" className="w-full h-full object-cover" />
+              <img src="/assets/91.jpg" alt="Team member" className="w-full h-full object-cover" />
             </motion.div>
             <motion.div 
               whileHover={{ y: -5 }}
               className="w-12 h-12 rounded-full border-2 border-white overflow-hidden"
             >
-              <img src="/api/placeholder/48/48" alt="Team member" className="w-full h-full object-cover" />
+              <img src="/assets/71.jpg" alt="Team member" className="w-full h-full object-cover" />
             </motion.div>
           </div>
         </div>
