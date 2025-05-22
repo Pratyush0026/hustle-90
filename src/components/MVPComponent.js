@@ -4,6 +4,10 @@
 
 // import React, { useRef } from 'react';
 // import { AnimatedBeam } from "@/components/magicui/animated-beam";
+// import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
+// import { AnimatedList } from "@/components/magicui/animated-list";
+// import { File, Settings, Search, Code, Database, Brain } from "lucide-react";
+// import { cn } from "@/lib/utils";
 
 // // Circle component for beam endpoints
 // const Circle = React.forwardRef(({ className, children, size = "size-12" }, ref) => {
@@ -17,6 +21,80 @@
 //   );
 // });
 // Circle.displayName = "Circle";
+
+// // Support notifications for AnimatedList
+// let supportNotifications = [
+//   {
+//     name: "Weekly sync scheduled",
+//     description: "MVP Progress Review",
+//     time: "2m ago",
+//     icon: "📅",
+//     color: "#00C9A7",
+//   },
+//   {
+//     name: "Slack message",
+//     description: "Feature update available",
+//     time: "5m ago",
+//     icon: "💬",
+//     color: "#FFB800",
+//   },
+//   {
+//     name: "Milestone reached",
+//     description: "Backend API complete",
+//     time: "10m ago",
+//     icon: "🎯",
+//     color: "#FF3D71",
+//   },
+//   {
+//     name: "Support ticket",
+//     description: "Question resolved",
+//     time: "15m ago",
+//     icon: "🎧",
+//     color: "#1E86FF",
+//   },
+//   {
+//     name: "Code review",
+//     description: "PR approved & merged",
+//     time: "20m ago",
+//     icon: "✅",
+//     color: "#7C3AED",
+//   },
+// ];
+
+// supportNotifications = Array.from({ length: 8 }, () => supportNotifications).flat();
+
+// const SupportNotification = ({ name, description, icon, color, time }) => {
+//   return (
+//     <figure
+//       className={cn(
+//         "relative mx-auto min-h-fit w-full max-w-[320px] cursor-pointer overflow-hidden rounded-lg p-3",
+//         "transition-all duration-200 ease-in-out hover:scale-[102%]",
+//         "bg-white/90 backdrop-blur-sm [box-shadow:0_2px_8px_rgba(0,0,0,.1)]",
+//       )}
+//     >
+//       <div className="flex flex-row items-center gap-3">
+//         <div
+//           className="flex size-8 items-center justify-center rounded-lg"
+//           style={{
+//             backgroundColor: color,
+//           }}
+//         >
+//           <span className="text-sm">{icon}</span>
+//         </div>
+//         <div className="flex flex-col overflow-hidden">
+//           <figcaption className="flex flex-row items-center whitespace-pre text-sm font-medium">
+//             <span className="text-xs sm:text-sm">{name}</span>
+//             <span className="mx-1 text-xs">·</span>
+//             <span className="text-xs text-gray-500">{time}</span>
+//           </figcaption>
+//           <p className="text-xs font-normal text-gray-600">
+//             {description}
+//           </p>
+//         </div>
+//       </div>
+//     </figure>
+//   );
+// };
 
 // // Random icons for the demo (you can replace these later)
 // const Icons = {
@@ -206,11 +284,38 @@
 //           <p className="text-gray-700">90 days. Working product. Not a prototype. Not a PowerPoint. Design + Dev + Demo Ready</p>
 //         </div>
         
-//         {/* Second box - unchanged */}
+//         {/* Second box with enhanced orbiting circles */}
 //         <div className="md:col-span-7 flex flex-col">
-//           <div className="rounded-lg bg-gradient-to-br from-orange-300 to-yellow-300 h-64 mb-4 relative transform transition-transform duration-300 hover:scale-[1.03]">
-//             <div className="absolute inset-0 flex items-center justify-center">
-//               <div className="bg-white/80 rounded-lg w-2/3 h-2/3"></div>
+//           <div className="rounded-lg bg-gradient-to-br from-orange-300 to-yellow-300 h-64 mb-4 transform transition-transform duration-300 hover:scale-[1.03] overflow-hidden">
+//             {/* Enhanced Orbiting Circles Container */}
+//             <div className="relative h-full w-full flex items-center justify-center">
+//               {/* Inner orbit with larger, styled icons */}
+//               <OrbitingCircles 
+//                 className="size-[50px] border-2 border-white bg-white shadow-lg" 
+//                 duration={20} 
+//                 radius={60}
+//               >
+//                 <File className="text-orange-600" size={24} />
+//                 <Settings className="text-blue-600" size={24} />
+//                 <Search className="text-green-600" size={24} />
+//               </OrbitingCircles>
+              
+//               {/* Outer orbit with larger, styled icons */}
+//               <OrbitingCircles 
+//                 className="size-[45px] border-2 border-white bg-white shadow-lg" 
+//                 duration={25} 
+//                 radius={110} 
+//                 reverse
+//               >
+//                 <Code className="text-purple-600" size={22} />
+//                 <Database className="text-red-600" size={22} />
+//                 <Brain className="text-indigo-600" size={22} />
+//               </OrbitingCircles>
+
+//               {/* Central hub with AI icon */}
+//               <div className="flex h-16 w-16 items-center justify-center rounded-full border-4 border-white bg-gradient-to-br from-orange-500 to-yellow-500 shadow-xl z-10">
+//                 <Brain className="text-white" size={28} />
+//               </div>
 //             </div>
 //           </div>
 //           <h2 className="text-2xl font-bold mb-2">AI-Assisted Dev</h2>
@@ -218,18 +323,27 @@
 //         </div>
 //       </div>
 
-//       {/* Second row - unchanged */}
+//       {/* Second row with Full Support animated list */}
 //       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
+//         {/* Full Support box with animated list */}
 //         <div className="md:col-span-7 flex flex-col">
-//           <div className="rounded-lg bg-gradient-to-br from-orange-300 to-orange-400 h-64 mb-4 relative transform transition-transform duration-300 hover:scale-[1.03]">
-//             <div className="absolute inset-0 flex items-center justify-center">
-//               <div className="bg-white/80 rounded-lg w-2/3 h-2/3"></div>
+//           <div className="rounded-lg bg-gradient-to-br from-orange-300 to-orange-400 h-64 mb-4 relative transform transition-transform duration-300 hover:scale-[1.03] overflow-hidden">
+//             {/* Animated List Container */}
+//             <div className="relative h-full w-full p-4">
+//               <AnimatedList className="h-full">
+//                 {supportNotifications.map((item, idx) => (
+//                   <SupportNotification {...item} key={idx} />
+//                 ))}
+//               </AnimatedList>
+//               {/* Gradient fade at bottom */}
+//               <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-orange-400 to-transparent"></div>
 //             </div>
 //           </div>
 //           <h2 className="text-2xl font-bold mb-2">Full Support</h2>
 //           <p className="text-gray-700">Slack. Weekly syncs. Clear milestones. We're your tech team, product coach, and launch partner all in one.</p>
 //         </div>
         
+//         {/* Pitch-Ready Delivery box */}
 //         <div className="md:col-span-5 flex flex-col">
 //           <div className="rounded-lg bg-gradient-to-br from-orange-300 to-yellow-300 h-64 mb-4 transform transition-transform duration-300 hover:scale-[1.03]"></div>
 //           <h2 className="text-2xl font-bold mb-2">Pitch-Ready Delivery</h2>
@@ -245,10 +359,13 @@
 
 "use client";
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { AnimatedBeam } from "@/components/magicui/animated-beam";
 import { OrbitingCircles } from "@/components/magicui/orbiting-circles";
+import { AnimatedList } from "@/components/magicui/animated-list";
+import { Confetti } from "@/components/magicui/confetti";
 import { File, Settings, Search, Code, Database, Brain } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 // Circle component for beam endpoints
 const Circle = React.forwardRef(({ className, children, size = "size-12" }, ref) => {
@@ -262,6 +379,80 @@ const Circle = React.forwardRef(({ className, children, size = "size-12" }, ref)
   );
 });
 Circle.displayName = "Circle";
+
+// Support notifications for AnimatedList
+let supportNotifications = [
+  {
+    name: "Weekly sync scheduled",
+    description: "MVP Progress Review",
+    time: "2m ago",
+    icon: "📅",
+    color: "#00C9A7",
+  },
+  {
+    name: "Slack message",
+    description: "Feature update available",
+    time: "5m ago",
+    icon: "💬",
+    color: "#FFB800",
+  },
+  {
+    name: "Milestone reached",
+    description: "Backend API complete",
+    time: "10m ago",
+    icon: "🎯",
+    color: "#FF3D71",
+  },
+  {
+    name: "Support ticket",
+    description: "Question resolved",
+    time: "15m ago",
+    icon: "🎧",
+    color: "#1E86FF",
+  },
+  {
+    name: "Code review",
+    description: "PR approved & merged",
+    time: "20m ago",
+    icon: "✅",
+    color: "#7C3AED",
+  },
+];
+
+supportNotifications = Array.from({ length: 8 }, () => supportNotifications).flat();
+
+const SupportNotification = ({ name, description, icon, color, time }) => {
+  return (
+    <figure
+      className={cn(
+        "relative mx-auto min-h-fit w-full max-w-[320px] cursor-pointer overflow-hidden rounded-lg p-3",
+        "transition-all duration-200 ease-in-out hover:scale-[102%]",
+        "bg-white/90 backdrop-blur-sm [box-shadow:0_2px_8px_rgba(0,0,0,.1)]",
+      )}
+    >
+      <div className="flex flex-row items-center gap-3">
+        <div
+          className="flex size-8 items-center justify-center rounded-lg"
+          style={{
+            backgroundColor: color,
+          }}
+        >
+          <span className="text-sm">{icon}</span>
+        </div>
+        <div className="flex flex-col overflow-hidden">
+          <figcaption className="flex flex-row items-center whitespace-pre text-sm font-medium">
+            <span className="text-xs sm:text-sm">{name}</span>
+            <span className="mx-1 text-xs">·</span>
+            <span className="text-xs text-gray-500">{time}</span>
+          </figcaption>
+          <p className="text-xs font-normal text-gray-600">
+            {description}
+          </p>
+        </div>
+      </div>
+    </figure>
+  );
+};
 
 // Random icons for the demo (you can replace these later)
 const Icons = {
@@ -490,20 +681,43 @@ const MVPComponent = () => {
         </div>
       </div>
 
-      {/* Second row - unchanged */}
+      {/* Second row with Full Support animated list */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
+        {/* Full Support box with animated list */}
         <div className="md:col-span-7 flex flex-col">
-          <div className="rounded-lg bg-gradient-to-br from-orange-300 to-orange-400 h-64 mb-4 relative transform transition-transform duration-300 hover:scale-[1.03]">
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="bg-white/80 rounded-lg w-2/3 h-2/3"></div>
+          <div className="rounded-lg bg-gradient-to-br from-orange-300 to-orange-400 h-64 mb-4 relative transform transition-transform duration-300 hover:scale-[1.03] overflow-hidden">
+            {/* Animated List Container */}
+            <div className="relative h-full w-full p-4">
+              <AnimatedList className="h-full">
+                {supportNotifications.map((item, idx) => (
+                  <SupportNotification {...item} key={idx} />
+                ))}
+              </AnimatedList>
+              {/* Gradient fade at bottom */}
+              <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-orange-400 to-transparent"></div>
             </div>
           </div>
           <h2 className="text-2xl font-bold mb-2">Full Support</h2>
           <p className="text-gray-700">Slack. Weekly syncs. Clear milestones. We're your tech team, product coach, and launch partner all in one.</p>
         </div>
         
+        {/* Pitch-Ready Delivery box with confetti */}
         <div className="md:col-span-5 flex flex-col">
-          <div className="rounded-lg bg-gradient-to-br from-orange-300 to-yellow-300 h-64 mb-4 transform transition-transform duration-300 hover:scale-[1.03]"></div>
+          <div className="rounded-lg bg-gradient-to-br from-orange-300 to-yellow-300 h-64 mb-4 transform transition-transform duration-300 hover:scale-[1.03] relative overflow-hidden">
+            {/* Confetti Animation */}
+            <Confetti className="absolute left-0 top-0 z-0 size-full" />
+            
+            {/* Content overlay */}
+            <div className="relative z-10 h-full flex flex-col items-center justify-center p-6">
+              <div className="text-6xl mb-4">🚀</div>
+              <span className="text-center text-2xl font-bold bg-gradient-to-b from-orange-800 to-yellow-800 bg-clip-text text-transparent">
+                Launch Ready!
+              </span>
+              <div className="text-center text-sm text-orange-700 mt-2 font-medium">
+                Celebration Mode
+              </div>
+            </div>
+          </div>
           <h2 className="text-2xl font-bold mb-2">Pitch-Ready Delivery</h2>
           <p className="text-gray-700">Get more than a product — get a deck, a demo, and confidence for your next investor call.</p>
         </div>
