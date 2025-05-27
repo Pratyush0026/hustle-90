@@ -156,7 +156,7 @@ const Header = () => {
   return (
     <header className="absolute top-0 left-0 right-0 z-50 flex justify-center pt-6">
       <style jsx global>{keyframesStyle}</style>
-      <div className="w-[90%] sm:w-[550px] md:w-[650px] lg:w-[720px] bg-white/90 backdrop-blur-sm rounded-lg px-6 py-3 flex items-center justify-between">
+      <div className="w-[90%] sm:w-[550px] md:w-[680px] lg:w-[750px] bg-white/90 backdrop-blur-sm rounded-lg px-6 py-3 flex items-center justify-between">
         <div className="flex items-center">
           <Link href="/" className="flex items-center">
             <span className="text-2xl font-bold">H<span className="text-orange-500">U</span>STLE<span className="text-orange-500">90</span></span>
@@ -166,19 +166,19 @@ const Header = () => {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
           <Link href="/features" className="text-gray-700 hover:text-gray-900">
-            Features
+            Why Us?
           </Link>
           <Link href="/about" className="text-gray-700 hover:text-gray-900">
             About
           </Link>
           <Link href="/testimonial" className="text-gray-700 hover:text-gray-900">
-            Testimonial
+            Case Studies
           </Link>
           <Link href="/pricing" className="text-gray-700 hover:text-gray-900">
             Pricing
           </Link>
           <Link href="/faq" className="text-gray-700 hover:text-gray-900">
-            Faq
+          Resources
           </Link>
           <Link href="/contact" className="bg-gray-900 hover:bg-gray-800 px-6 py-2 rounded-lg font-medium">
             <span style={shinyTextStyle}>Contact</span>
