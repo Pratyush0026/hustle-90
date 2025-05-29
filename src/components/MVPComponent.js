@@ -900,6 +900,10 @@
 // };
 
 // export default MVPComponent;
+
+
+
+
 "use client";
 
 import React, { useRef, useState, useEffect } from 'react';
@@ -911,6 +915,8 @@ import { RainbowButton } from "@/components/magicui/rainbow-button";
 import { motion } from "framer-motion";
 import { File, Settings, Search, Code, Database, Brain } from "lucide-react";
 import { cn } from "@/lib/utils";
+
+ 
 
 // Circle component for beam endpoints
 const Circle = React.forwardRef(({ className, children, size = "size-12" }, ref) => {
@@ -1099,10 +1105,30 @@ const MVPComponent = () => {
     };
   }, []);
 
+  const rocketFlyStyle = {
+    animation: 'rocketFly 3s ease-in-out',
+  };
+
+  // Add the keyframes as a style tag (add this before your return statement)
+  useEffect(() => {
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes rocketFly {
+        0% { transform: translate(0, 0) rotate(0deg); }
+        25% { transform: translate(-30px, -60px) rotate(-15deg); }
+        50% { transform: translate(0, -120px) rotate(0deg); }
+        75% { transform: translate(30px, -60px) rotate(15deg); }
+        100% { transform: translate(0, 0) rotate(0deg); }
+      }
+    `;
+    document.head.appendChild(style);
+    return () => document.head.removeChild(style);
+  }, []);
+
   return (
     <div ref={sectionRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
       {/* Hero section with exact styling from images */}
-      <div className="text-center mb-16">
+      {/* <div className="text-center mb-16">
         <div className="mb-6">
           <motion.div
             className="relative inline-block"
@@ -1130,16 +1156,56 @@ const MVPComponent = () => {
             </div>
           </motion.div>
         </div>
-        {/* Main heading with DM Sans font, responsive sizing - much smaller on mobile */}
+      
         <h1 className="font-['DM_Sans'] font-medium text-[32px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[80px] leading-[36px] sm:leading-[44px] md:leading-[60px] lg:leading-[76px] xl:leading-[80px] tracking-[-1px] sm:tracking-[-1.2px] md:tracking-[-1.6px] lg:tracking-[-1.8px] xl:tracking-[-2px] text-center text-black mb-4 sm:mb-5 md:mb-6">
           Everything You Need<br />
           Nothing You Don't
         </h1>
-        {/* Subheading with Poppins font, responsive sizing - much smaller on mobile */}
+      
         <p className="font-['Poppins'] font-normal text-[16px] sm:text-[18px] md:text-[24px] lg:text-[30px] xl:text-[36px] leading-[24px] sm:leading-[28px] md:leading-[33px] lg:leading-[48px] xl:leading-[60px] tracking-[-0.5px] sm:tracking-[-0.8px] md:tracking-[-1.2px] lg:tracking-[-1.6px] xl:tracking-[-2px] text-center text-black max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto px-4" style={{ textTransform: 'capitalize' }}>
           We're not a dev shop. We're your co-pilot combining product strategy, AI enhanced development, and launch execution.
         </p>
+      </div> */}
+
+
+      <div className="text-center mb-16">
+  <div className="mb-6">
+    <motion.div
+      className="relative inline-block"
+      animate={{
+        background: [
+          "linear-gradient(90deg, #E6651F, #2954d1, #000000)",
+          "linear-gradient(180deg, #2954d1, #000000, #E6651F)",
+          "linear-gradient(270deg, #000000, #E6651F, #2954d1)",
+          "linear-gradient(360deg, #E6651F, #2954d1, #000000)",
+          "linear-gradient(90deg, #E6651F, #2954d1, #000000)"
+        ]
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        ease: "linear"
+      }}
+      style={{
+        padding: "2px",
+        borderRadius: "9999px"
+      }}
+    >
+      <div className="bg-white text-black rounded-full px-6 py-2 shadow-md relative z-10">
+        AI-Powered. No Excuses. No Storytime.
       </div>
+    </motion.div>
+  </div>
+  {/* Main heading with DM Sans font, responsive sizing - much smaller on mobile */}
+  <h1 className="font-['DM_Sans'] font-medium text-[32px] sm:text-[40px] md:text-[56px] lg:text-[72px] xl:text-[80px] leading-[36px] sm:leading-[44px] md:leading-[60px] lg:leading-[76px] xl:leading-[80px] tracking-[-1px] sm:tracking-[-1.2px] md:tracking-[-1.6px] lg:tracking-[-1.8px] xl:tracking-[-2px] text-center text-black mb-4 sm:mb-5 md:mb-6">
+    Everything You Need<br />
+    Nothing You Don't
+  </h1>
+  {/* Subheading with Poppins font, responsive sizing - much smaller on mobile */}
+  <p className="font-['Poppins'] font-normal text-[16px] sm:text-[18px] md:text-[24px] lg:text-[30px] xl:text-[36px] leading-[24px] sm:leading-[28px] md:leading-[33px] lg:leading-[48px] xl:leading-[60px] tracking-[-0.5px] sm:tracking-[-0.8px] md:tracking-[-1.2px] lg:tracking-[-1.6px] xl:tracking-[-2px] text-center text-black max-w-sm sm:max-w-lg md:max-w-2xl lg:max-w-4xl xl:max-w-5xl mx-auto px-4" style={{ textTransform: 'capitalize' }}>
+    We're not a dev shop. We're your co-pilot combining product strategy, AI enhanced development, and launch execution.
+  </p>
+</div>
       
       {/* First row - Asymmetric with animated beam network */}
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 mb-8">
@@ -1154,11 +1220,18 @@ const MVPComponent = () => {
             }}
           >
             {/* Central hub */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            {/* <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <Circle ref={centerRef} size="size-25" className="bg-white shadow-lg">
                 <img src="/assets/logo.png" alt="Hustle 90 Logo" className="w-20 h-6" />
               </Circle>
-            </div>
+            </div> */}
+
+            {/* Central hub */}
+<div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+  <Circle ref={centerRef} size="size-25" className="bg-white shadow-lg">
+    <img src="/assets/logo.png" alt="Hustle 90 Logo" className="w-20 h-6" />
+  </Circle>
+</div>
 
             {/* Top nodes */}
             <div className="absolute left-1/4 top-4">
@@ -1166,6 +1239,7 @@ const MVPComponent = () => {
                 <Icons.code />
               </Circle>
             </div>
+
             <div className="absolute right-1/4 top-4">
               <Circle ref={node2Ref} size="size-10">
                 <Icons.database />
@@ -1178,6 +1252,7 @@ const MVPComponent = () => {
                 <Icons.cloud />
               </Circle>
             </div>
+
             <div className="absolute right-4 top-1/2 -translate-y-1/2">
               <Circle ref={node4Ref} size="size-10">
                 <Icons.mobile />
@@ -1190,6 +1265,7 @@ const MVPComponent = () => {
                 <Icons.shield />
               </Circle>
             </div>
+
             <div className="absolute right-1/4 bottom-4">
               <Circle ref={node6Ref} size="size-10">
                 <Icons.rocket />
@@ -1345,7 +1421,8 @@ const MVPComponent = () => {
             
             {/* Content overlay */}
             <div className="relative z-10 h-full flex flex-col items-center justify-center p-6">
-              <div className="text-6xl mb-4">🚀</div>
+              {/* <div className="text-6xl mb-4">🚀</div> */}
+              <div className="text-6xl mb-4" style={rocketFlyStyle}>🚀</div>
               <span className="text-center text-2xl font-bold bg-gradient-to-b from-orange-800 to-yellow-800 bg-clip-text text-transparent">
                 Launch Ready!
               </span>
