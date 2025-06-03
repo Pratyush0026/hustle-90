@@ -135,7 +135,7 @@ const MVPComponent2 = () => {
             </div>
           </motion.div>
         </div>
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6" style={{fontFamily: 'DM Sans', fontWeight: 500, fontSize: '80px', lineHeight: '80px', letterSpacing: '-2px'}}>
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold mb-6" style={{fontFamily: 'DM Sans', fontWeight: 500, fontSize: '60px', lineHeight: '80px', letterSpacing: '-2px'}}>
           Everything You Need<br />
           Nothing You Don't
         </h1>
