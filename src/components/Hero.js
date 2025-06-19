@@ -375,35 +375,38 @@ const Hero = () => {
             />
           </h1> */}
 
-          <h1 className="text-black text-center font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
-            <BlurText
-              text="Idea"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              stepDuration={0.4}
-            />
-            <img
-              src="/assets/arrow.png"
-              alt="arrow"
-              className="inline-block mx-6 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16"
-              style={{ verticalAlign: 'middle' }}
-            />
-            <BlurText
-              text="Investor Ready"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              stepDuration={0.4}
-            /><br />
-            <BlurText
-              text="MVP in 90 Days"
-              delay={150}
-              animateBy="words"
-              direction="top"
-              stepDuration={0.4}
-            />
-          </h1>
+<h1 className="text-black text-center font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
+  <BlurText
+    text="Idea"
+    delay={0}
+    animateBy="words"
+    direction="top"
+    stepDuration={0.3}
+  />
+  <motion.img
+    src="/assets/arrow.png"
+    alt="arrow"
+    className="inline-block mx-6 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 xl:w-16 xl:h-16"
+    style={{ verticalAlign: 'middle' }}
+    initial={{ opacity: 0, x: -20 }}
+    animate={{ opacity: 1, x: 0 }}
+    transition={{ delay: 0.4, duration: 0.2 }}  
+  />
+  <BlurText
+    text="Investor Ready"
+    delay={0}
+    animateBy="words"
+    direction="top"
+    stepDuration={0.3}
+  /><br />
+  <BlurText
+    text="MVP in 90 Days"
+    delay={0}
+    animateBy="words"
+    direction="top"
+    stepDuration={0.3}
+  />
+</h1>
 
           <p
             className={`mt-6 text-black text-center max-w-6xl mx-auto ${poppins.className}`}
