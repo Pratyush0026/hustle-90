@@ -9,6 +9,10 @@ import FAQSection from '@/components/FAQSection';
 import MarqueeSection from '@/components/MarqueeSection';
 import "./globals.css";
 import Footer from '@/components/Footer';
+import FeaturesSection from '@/components/FeaturesSection';
+import KeyBenefitsSection from '@/components/KeyBenefitsSection';
+import AboutSection from '@/components/AboutSection';
+import HowItWorksSection from '@/components/HowItWorkssection';
 
 
 export default function Home() {
@@ -17,7 +21,12 @@ export default function Home() {
       <Header />
       <Hero />
       <MVPComponent/>
-      <MVPComponent2/>
+      {/* <MVPComponent2/> */}
+      <FeaturesSection/>
+
+      <KeyBenefitsSection/>
+      <AboutSection/>
+      <HowItWorksSection/>
       <PricingComponent/>
       <TestimonialsSection/>
       <FAQSection/>
