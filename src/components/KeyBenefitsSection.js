@@ -95,7 +95,7 @@
 //                         />
 //                       </div>
 //                     </div>
-                    
+
 //                     {/* Content */}
 //                     <div className="flex-1">
 //                       <h3 className="text-[#1B0C25] font-inter text-sm lg:text-[16px] font-medium leading-6 mb-2">
@@ -140,7 +140,7 @@
 //                         />
 //                       </div>
 //                     </div>
-                    
+
 //                     {/* Content */}
 //                     <div className="flex-1">
 //                       <h3 className="text-[#1B0C25] font-inter text-sm lg:text-[16px] font-medium leading-6 mb-2">
@@ -216,13 +216,13 @@ const KeyBenefitsSection = () => {
       <div className="container mx-auto px-4 lg:px-6">
         {/* Header Badge */}
         <div className="flex justify-center mb-8 lg:mb-12">
-          <div 
-            className="inline-flex items-center justify-center px-8 py-7 rounded-full border border-[#E6651F] bg-white"
+          <div
+            className="inline-flex items-center justify-center px-5 py-5 rounded-full border border-[#E6651F] bg-white"
             style={{
               boxShadow: '0 2.26px 5.65px 0 rgba(0, 0, 0, 0.07), 0 9.041px 9.041px 0 rgba(0, 0, 0, 0.06), 0 21.471px 12.431px 0 rgba(0, 0, 0, 0.04), 0 37.293px 14.691px 0 rgba(0, 0, 0, 0.01)'
             }}
           >
-            <span className="text-[#1B0C25] font-inter text-sm font-medium uppercase tracking-wider">
+            <span className="text-[#1B0C25] font-inter text-md font-semibold uppercase tracking-wider">
               KEY BENEFITS
             </span>
           </div>
@@ -262,7 +262,7 @@ const KeyBenefitsSection = () => {
                         />
                       </div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="flex-1">
                       <h3 className="text-[#1B0C25] font-inter text-sm lg:text-[16px] font-medium leading-6 mb-2">
@@ -307,7 +307,7 @@ const KeyBenefitsSection = () => {
                         />
                       </div>
                     </div>
-                    
+
                     {/* Content */}
                     <div className="flex-1">
                       <h3 className="text-[#1B0C25] font-inter text-sm lg:text-[16px] font-medium leading-6 mb-2">

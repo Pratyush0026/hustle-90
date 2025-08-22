@@ -4,10 +4,10 @@ import Image from 'next/image';
 const HowItWorksSection = () => {
   return (
     <section className="w-full max-w-[1240px] mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 lg:py-20">
-      
+
       {/* Top Section - Left Content + Right Card */}
       <div className="flex flex-col lg:flex-row items-start gap-6 sm:gap-8 lg:gap-12 mb-8 sm:mb-12 lg:mb-16">
-        
+
         {/* Left Content */}
         <div className="flex-1 w-full">
           {/* How It Works Tag */}
@@ -46,8 +46,8 @@ const HowItWorksSection = () => {
           <div className="w-full max-w-md mx-auto lg:max-w-none p-2 lg:p-[8px] pb-0 bg-white rounded-xl lg:rounded-2xl shadow-[0_1px_2px_0_#DA5208]">
             {/* Image */}
             <div className="w-full aspect-[445/278] rounded-lg lg:rounded-xl overflow-hidden mb-4 sm:mb-6 lg:mb-[30px]">
-              <Image 
-                src="/assets/ai-work.jpg" 
+              <Image
+                src="/assets/ai-work.png"
                 alt="Let AI Work"
                 width={445}
                 height={278}
@@ -70,13 +70,13 @@ const HowItWorksSection = () => {
 
       {/* Bottom Section - 3 Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-        
+
         {/* Card 1 - Connect Your Data */}
         <div className="w-full max-w-md mx-auto sm:max-w-none">
           <div className="w-full p-2 lg:p-[8px] pb-0 bg-white rounded-xl lg:rounded-2xl shadow-[0_1px_2px_0_#DA5208]">
             <div className="w-full aspect-[445/278] rounded-lg lg:rounded-xl overflow-hidden mb-4 sm:mb-6 lg:mb-[30px]">
-              <Image 
-                src="/assets/connect-data.jpg" 
+              <Image
+                src="/assets/connect-data.png"
                 alt="Connect Your Data"
                 width={445}
                 height={278}
@@ -98,8 +98,8 @@ const HowItWorksSection = () => {
         <div className="w-full max-w-md mx-auto sm:max-w-none">
           <div className="w-full p-2 lg:p-[8px] pb-0 bg-white rounded-xl lg:rounded-2xl shadow-[0_1px_2px_0_#DA5208]">
             <div className="w-full aspect-[445/278] rounded-lg lg:rounded-xl overflow-hidden mb-4 sm:mb-6 lg:mb-[30px]">
-              <Image 
-                src="/assets/analyze-optimize.jpg" 
+              <Image
+                src="/assets/analyze-optimize.png"
                 alt="Analyze and Optimize"
                 width={445}
                 height={278}
@@ -121,8 +121,8 @@ const HowItWorksSection = () => {
         <div className="w-full max-w-md mx-auto sm:max-w-none sm:col-span-2 lg:col-span-1">
           <div className="w-full p-2 lg:p-[8px] pb-0 bg-white rounded-xl lg:rounded-2xl shadow-[0_1px_2px_0_#DA5208]">
             <div className="w-full aspect-[445/278] rounded-lg lg:rounded-xl overflow-hidden mb-4 sm:mb-6 lg:mb-[30px]">
-              <Image 
-                src="/assets/ai-work-2.jpg" 
+              <Image
+                src="/assets/ai-work.png"
                 alt="Let AI Work"
                 width={445}
                 height={278}
