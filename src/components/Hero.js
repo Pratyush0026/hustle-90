@@ -1,20 +1,20 @@
 "use client";
-import Link from 'next/link';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useEffect, useRef, useState, useMemo } from 'react';
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { useEffect, useRef, useState, useMemo } from "react";
 
-import { DM_Sans, Poppins } from 'next/font/google';
+import { DM_Sans, Poppins } from "next/font/google";
 
 const dmSans = DM_Sans({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const poppins = Poppins({
-  subsets: ['latin'],
-  weight: ['400', '500', '600', '700'],
-  display: 'swap',
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 const buildKeyframes = (from, steps) => {
@@ -30,20 +30,20 @@ const buildKeyframes = (from, steps) => {
 };
 
 const BlurText = ({
-  text = '',
+  text = "",
   delay = 200,
-  className = '',
-  animateBy = 'words',
-  direction = 'top',
+  className = "",
+  animateBy = "words",
+  direction = "top",
   threshold = 0.1,
-  rootMargin = '0px',
+  rootMargin = "0px",
   animationFrom,
   animationTo,
   easing = (t) => t,
   onAnimationComplete,
   stepDuration = 0.35,
 }) => {
-  const elements = animateBy === 'words' ? text.split(' ') : text.split('');
+  const elements = animateBy === "words" ? text.split(" ") : text.split("");
   const [inView, setInView] = useState(false);
   const ref = useRef(null);
   useEffect(() => {
@@ -63,19 +63,19 @@ const BlurText = ({
   }, [threshold, rootMargin]);
   const defaultFrom = useMemo(
     () =>
-      direction === 'top'
-        ? { filter: 'blur(10px)', opacity: 0, y: -50 }
-        : { filter: 'blur(10px)', opacity: 0, y: 50 },
+      direction === "top"
+        ? { filter: "blur(10px)", opacity: 0, y: -50 }
+        : { filter: "blur(10px)", opacity: 0, y: 50 },
     [direction]
   );
   const defaultTo = useMemo(
     () => [
       {
-        filter: 'blur(5px)',
+        filter: "blur(5px)",
         opacity: 0.5,
-        y: direction === 'top' ? 5 : -5,
+        y: direction === "top" ? 5 : -5,
       },
-      { filter: 'blur(0px)', opacity: 1, y: 0 },
+      { filter: "blur(0px)", opacity: 1, y: 0 },
     ],
     [direction]
   );
@@ -87,10 +87,7 @@ const BlurText = ({
     stepCount === 1 ? 0 : i / (stepCount - 1)
   );
   return (
-    <span
-      ref={ref}
-      className={`blur-text ${className} inline-flex flex-wrap`}
-    >
+    <span ref={ref} className={`blur-text ${className} inline-flex flex-wrap`}>
       {elements.map((segment, index) => {
         const animateKeyframes = buildKeyframes(fromSnapshot, toSnapshots);
         const spanTransition = {
@@ -98,7 +95,7 @@ const BlurText = ({
           times,
           delay: (index * delay) / 1000,
         };
-        (spanTransition).ease = easing;
+        spanTransition.ease = easing;
         return (
           <motion.span
             className="inline-block will-change-[transform,filter,opacity]"
@@ -110,8 +107,8 @@ const BlurText = ({
               index === elements.length - 1 ? onAnimationComplete : undefined
             }
           >
-            {segment === ' ' ? '\u00A0' : segment}
-            {animateBy === 'words' && index < elements.length - 1 && '\u00A0'}
+            {segment === " " ? "\u00A0" : segment}
+            {animateBy === "words" && index < elements.length - 1 && "\u00A0"}
           </motion.span>
         );
       })}
@@ -122,32 +119,30 @@ const BlurText = ({
 const ShinyText = ({ text, isLight = true }) => {
   return (
     <div className="relative inline-block">
-      <span className={isLight ? "text-white" : "text-gray-900"}>
-        {text}
-      </span>
+      <span className={isLight ? "text-white" : "text-gray-900"}>{text}</span>
 
       <motion.span
         className="absolute top-0 left-0 whitespace-nowrap"
         style={{
           backgroundImage: isLight
-            ? 'linear-gradient(90deg, transparent, rgba(180, 180, 180, 0.9), transparent)'
-            : 'linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent)',
-          backgroundSize: '200% 100%',
-          backgroundRepeat: 'no-repeat',
-          backgroundClip: 'text',
-          WebkitBackgroundClip: 'text',
-          WebkitTextFillColor: 'transparent',
-          textFillColor: 'transparent',
-          color: isLight ? 'white' : '#1a202c',
+            ? "linear-gradient(90deg, transparent, rgba(180, 180, 180, 0.9), transparent)"
+            : "linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.8), transparent)",
+          backgroundSize: "200% 100%",
+          backgroundRepeat: "no-repeat",
+          backgroundClip: "text",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          textFillColor: "transparent",
+          color: isLight ? "white" : "#1a202c",
         }}
-        initial={{ backgroundPosition: '-100%' }}
+        initial={{ backgroundPosition: "-100%" }}
         animate={{
-          backgroundPosition: ['200%', '-100%'],
+          backgroundPosition: ["200%", "-100%"],
           transition: {
             repeat: Infinity,
             duration: 2,
-            ease: "linear"
-          }
+            ease: "linear",
+          },
         }}
       >
         {text}
@@ -158,22 +153,23 @@ const ShinyText = ({ text, isLight = true }) => {
 
 const ModernContactModal = ({ isOpen, onClose }) => {
   const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    phone: ''
+    name: "",
+    email: "",
+    phone: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState('');
-  const [focusedField, setFocusedField] = useState('');
+  const [submitStatus, setSubmitStatus] = useState("");
+  const [focusedField, setFocusedField] = useState("");
 
   // Replace this with your Google Apps Script Web App URL
-  const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby5UmbMAszrt0tPuKrmVwTxzMz3r3MHPCI7oXdZonsec8ofgvxpz8tGd6W4_oSPmoVm/exec';
+  const GOOGLE_SCRIPT_URL =
+    "https://script.google.com/macros/s/AKfycby5UmbMAszrt0tPuKrmVwTxzMz3r3MHPCI7oXdZonsec8ofgvxpz8tGd6W4_oSPmoVm/exec";
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -182,19 +178,19 @@ const ModernContactModal = ({ isOpen, onClose }) => {
 
     // Check if all fields are filled
     if (!name.trim() || !email.trim() || !phone.trim()) {
-      return { isValid: false, message: 'Please fill in all fields' };
+      return { isValid: false, message: "Please fill in all fields" };
     }
 
     // Basic email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return { isValid: false, message: 'Please enter a valid email address' };
+      return { isValid: false, message: "Please enter a valid email address" };
     }
 
     // Basic phone validation (at least 10 digits)
     const phoneRegex = /\d{10,}/;
-    if (!phoneRegex.test(phone.replace(/\D/g, ''))) {
-      return { isValid: false, message: 'Please enter a valid phone number' };
+    if (!phoneRegex.test(phone.replace(/\D/g, ""))) {
+      return { isValid: false, message: "Please enter a valid phone number" };
     }
 
     return { isValid: true };
@@ -203,47 +199,46 @@ const ModernContactModal = ({ isOpen, onClose }) => {
   const handleSubmit = async () => {
     const validation = validateForm();
     if (!validation.isValid) {
-      setSubmitStatus('error');
+      setSubmitStatus("error");
       return;
     }
 
     setIsSubmitting(true);
-    setSubmitStatus('');
+    setSubmitStatus("");
 
     try {
       const response = await fetch(GOOGLE_SCRIPT_URL, {
-        method: 'POST',
-        mode: 'no-cors', // This fixes CORS
+        method: "POST",
+        mode: "no-cors", // This fixes CORS
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           name: formData.name.trim(),
           email: formData.email.trim(),
           phone: formData.phone.trim(),
-          timestamp: new Date().toISOString()
-        })
+          timestamp: new Date().toISOString(),
+        }),
       });
 
       // With no-cors, we can't read response, so assume success
-      setSubmitStatus('success');
+      setSubmitStatus("success");
 
       setTimeout(() => {
-        setFormData({ name: '', email: '', phone: '' });
-        setSubmitStatus('');
+        setFormData({ name: "", email: "", phone: "" });
+        setSubmitStatus("");
         onClose();
       }, 2500);
-
     } catch (error) {
-      console.error('Submission error:', error);
-      setSubmitStatus('error');
+      console.error("Submission error:", error);
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   const handleKeyPress = (e) => {
-    if (e.key === 'Enter' && !isSubmitting) {
+    if (e.key === "Enter" && !isSubmitting) {
       handleSubmit();
     }
   };
@@ -263,8 +258,9 @@ const ModernContactModal = ({ isOpen, onClose }) => {
           <motion.div
             className="absolute inset-0"
             style={{
-              background: 'radial-gradient(circle at 50% 50%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%)',
-              backdropFilter: 'blur(20px)',
+              background:
+                "radial-gradient(circle at 50% 50%, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.8) 100%)",
+              backdropFilter: "blur(20px)",
             }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -281,32 +277,34 @@ const ModernContactModal = ({ isOpen, onClose }) => {
             transition={{
               type: "spring",
               stiffness: 300,
-              damping: 30
+              damping: 30,
             }}
           >
             {/* Glassmorphism Container */}
             <div
               className="relative overflow-hidden rounded-3xl shadow-2xl border border-white/20"
               style={{
-                background: 'linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)',
-                backdropFilter: 'blur(40px)',
-                boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.5)',
+                background:
+                  "linear-gradient(135deg, rgba(255,255,255,0.15) 0%, rgba(255,255,255,0.05) 100%)",
+                backdropFilter: "blur(40px)",
+                boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.5)",
               }}
             >
               {/* Animated Background Gradient */}
               <motion.div
                 className="absolute inset-0 opacity-60"
                 style={{
-                  background: 'linear-gradient(45deg, #ff6b35, #f7931e, #ff6b35, #f7931e)',
-                  backgroundSize: '400% 400%',
+                  background:
+                    "linear-gradient(45deg, #ff6b35, #f7931e, #ff6b35, #f7931e)",
+                  backgroundSize: "400% 400%",
                 }}
                 animate={{
-                  backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
                 }}
                 transition={{
                   duration: 8,
                   repeat: Infinity,
-                  ease: "linear"
+                  ease: "linear",
                 }}
               />
 
@@ -319,8 +317,18 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                   whileHover={{ scale: 1.1, rotate: 90 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  <svg
+                    className="w-5 h-5"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
                   </svg>
                 </motion.button>
 
@@ -335,11 +343,23 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                     className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-white/20 mb-4"
                     whileHover={{ scale: 1.1 }}
                   >
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    <svg
+                      className="w-8 h-8 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 10V3L4 14h7v7l9-11h-7z"
+                      />
                     </svg>
                   </motion.div>
-                  <h2 className={`text-3xl font-bold text-white mb-2 ${dmSans.className}`}>
+                  <h2
+                    className={`text-3xl font-bold text-white mb-2 ${dmSans.className}`}
+                  >
                     Launch Your MVP
                   </h2>
                   <p className={`text-white/80 text-lg ${poppins.className}`}>
@@ -362,8 +382,8 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        onFocus={() => setFocusedField('name')}
-                        onBlur={() => setFocusedField('')}
+                        onFocus={() => setFocusedField("name")}
+                        onBlur={() => setFocusedField("")}
                         onKeyPress={handleKeyPress}
                         placeholder="Full Name"
                         className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
@@ -372,7 +392,7 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                       <motion.div
                         className="absolute inset-0 rounded-2xl border-2 border-white/40 pointer-events-none"
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: focusedField === 'name' ? 1 : 0 }}
+                        animate={{ opacity: focusedField === "name" ? 1 : 0 }}
                         transition={{ duration: 0.2 }}
                       />
                     </div>
@@ -391,8 +411,8 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                         name="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        onFocus={() => setFocusedField('email')}
-                        onBlur={() => setFocusedField('')}
+                        onFocus={() => setFocusedField("email")}
+                        onBlur={() => setFocusedField("")}
                         onKeyPress={handleKeyPress}
                         placeholder="Email Address"
                         className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
@@ -401,7 +421,7 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                       <motion.div
                         className="absolute inset-0 rounded-2xl border-2 border-white/40 pointer-events-none"
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: focusedField === 'email' ? 1 : 0 }}
+                        animate={{ opacity: focusedField === "email" ? 1 : 0 }}
                         transition={{ duration: 0.2 }}
                       />
                     </div>
@@ -420,8 +440,8 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
-                        onFocus={() => setFocusedField('phone')}
-                        onBlur={() => setFocusedField('')}
+                        onFocus={() => setFocusedField("phone")}
+                        onBlur={() => setFocusedField("")}
                         onKeyPress={handleKeyPress}
                         placeholder="Phone Number"
                         className="w-full px-6 py-4 bg-white/10 border border-white/20 rounded-2xl text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-white/30 focus:border-transparent transition-all duration-300 backdrop-blur-sm"
@@ -430,7 +450,7 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                       <motion.div
                         className="absolute inset-0 rounded-2xl border-2 border-white/40 pointer-events-none"
                         initial={{ opacity: 0 }}
-                        animate={{ opacity: focusedField === 'phone' ? 1 : 0 }}
+                        animate={{ opacity: focusedField === "phone" ? 1 : 0 }}
                         transition={{ duration: 0.2 }}
                       />
                     </div>
@@ -449,7 +469,7 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                   >
                     <motion.div
                       className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                      style={{ borderRadius: '1rem' }}
+                      style={{ borderRadius: "1rem" }}
                     />
                     <span className="relative z-10 flex items-center justify-center">
                       {isSubmitting ? (
@@ -457,19 +477,23 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                           <motion.div
                             className="w-5 h-5 border-2 border-gray-600 border-t-transparent rounded-full mr-3"
                             animate={{ rotate: 360 }}
-                            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                            transition={{
+                              duration: 1,
+                              repeat: Infinity,
+                              ease: "linear",
+                            }}
                           />
                           Processing...
                         </>
                       ) : (
-                        'Start My 90-Day Journey'
+                        "Start My 90-Day Journey"
                       )}
                     </span>
                   </motion.button>
 
                   {/* Status Messages */}
                   <AnimatePresence>
-                    {submitStatus === 'success' && (
+                    {submitStatus === "success" && (
                       <motion.div
                         initial={{ opacity: 0, scale: 0.9, y: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -480,7 +504,7 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                       </motion.div>
                     )}
 
-                    {submitStatus === 'error' && (
+                    {submitStatus === "error" && (
                       <motion.div
                         initial={{ opacity: 0, scale: 0.9, y: 10 }}
                         animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -500,8 +524,16 @@ const ModernContactModal = ({ isOpen, onClose }) => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
-                  <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clipRule="evenodd" />
+                  <svg
+                    className="w-4 h-4 mr-2"
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z"
+                      clipRule="evenodd"
+                    />
                   </svg>
                   Your information is secure and encrypted
                 </motion.div>
@@ -522,7 +554,10 @@ const Hero = () => {
 
   return (
     <>
-      <section className={`relative overflow-hidden ${dmSans.className}`} style={{ height: '640px' }}>
+      <section
+        className={`relative overflow-hidden ${dmSans.className}`}
+        style={{ height: "640px" }}
+      >
         {/* Background Video */}
         <div className="absolute inset-0 w-full h-full z-0">
           <video
@@ -532,8 +567,8 @@ const Hero = () => {
             loop
             playsInline
             style={{
-              filter: 'brightness(1.1)',
-              transform: 'scale(1.02)'
+              filter: "brightness(1.1)",
+              transform: "scale(1.02)",
             }}
             ref={(video) => {
               if (video) {
@@ -547,7 +582,7 @@ const Hero = () => {
         </div>
 
         <div className="relative z-10 flex flex-col items-center justify-center h-full px-4 md:px-6 lg:px-8 text-center pt-20 sm:pt-24 lg:pt-10">
-          <div className="max-w-6xl mx-auto w-full">
+          <div className="max-w-full mx-auto w-full">
             {/* <h1 className="text-black text-center font-bold leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl">
               <BlurText
                 text="Idea"
@@ -595,53 +630,40 @@ const Hero = () => {
               To Demo Day Ready MVP With Battle Tested Systems, AI-Driven Speed, And Full-Stack Execution.
             </p> */}
 
-
-            <h1
-              className="text-black text-center font-medium"
-              style={{
-                width: '1556px',
-                height: '220px',
-                fontSize: '90px',
-                lineHeight: '110px',
-                letterSpacing: '-2px',
-                fontFamily: 'Inter',
-                fontWeight: 500,
-                textAlign: 'center',
-                position: 'relative',
-                top: '3px',
-                left: '-190px',
-                opacity: 1
-              }}
-            >
-              <BlurText
-                text="Build. Launch. Validate."
-                delay={0}
-                animateBy="words"
-                direction="top"
-                stepDuration={0.3}
-              />
-              <br />
-              <BlurText
-                text="A revenue-ready MVP in 90 days."
-                delay={0}
-                animateBy="words"
-                direction="top"
-                stepDuration={0.3}
-              />
+            <h1 className="text-black text-center font-medium leading-tight px-4 sm:px-0">
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+                <BlurText
+                  text="Build. Launch. Validate."
+                  delay={0}
+                  animateBy="words"
+                  direction="top"
+                  stepDuration={0.3}
+                />
+              </div>
+              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mt-2 lg:mt-4">
+                <BlurText
+                  text="A revenue-ready MVP in 90 days."
+                  delay={0}
+                  animateBy="words"
+                  direction="top"
+                  stepDuration={0.3}
+                />
+              </div>
             </h1>
 
             <p
               className={`mt-6 text-black text-center max-w-6xl mx-auto ${poppins.className}`}
               style={{
-                fontSize: 'clamp(16px, 2vw, 24px)',
+                fontSize: "clamp(16px, 2vw, 24px)",
                 fontWeight: 400,
-                lineHeight: 'clamp(28px, 3.5vw, 42px)',
-                letterSpacing: '0px'
+                lineHeight: "clamp(28px, 3.5vw, 42px)",
+                letterSpacing: "0px",
               }}
             >
-              We Help Founders Turn Sharp Ideas Into Working Products Fast Using Senior Talent,{' '}
-              <br className="hidden sm:block" />
-              AI-Powered Coding, And Ruthless Focus On What Drives Adoption And Revenue.
+              We Help Founders Turn Sharp Ideas Into Working Products Fast Using
+              Senior Talent, <br className="hidden sm:block" />
+              AI-Powered Coding, And Ruthless Focus On What Drives Adoption And
+              Revenue.
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
@@ -649,22 +671,22 @@ const Hero = () => {
                 onClick={openModal}
                 className="bg-gray-900 hover:bg-gray-800 transition-all duration-300 flex items-center justify-center rounded-lg text-white font-medium"
                 style={{
-                  width: '200px',
-                  height: '50px'
+                  width: "250px",
+                  height: "50px",
                 }}
               >
-                <ShinyText text="Start Now" isLight={true} />
+                <ShinyText text="Book a Strategy Call" isLight={true} />
               </button>
 
               <Link
                 href="/roadmap"
                 className="bg-white/90 hover:bg-white transition-all duration-300 flex items-center justify-center rounded-lg border border-gray-300 font-medium"
                 style={{
-                  width: '200px',
-                  height: '50px'
+                  width: "250px",
+                  height: "50px",
                 }}
               >
-                <ShinyText text="View Roadmap" isLight={false} />
+                <ShinyText text="Get Free Founder Kit" isLight={false} />
               </Link>
             </div>
           </div>
@@ -678,7 +700,7 @@ const Hero = () => {
               padding: 100px 0 60px 0;
             }
           }
-          
+
           @media (max-width: 768px) {
             section {
               height: auto !important;
@@ -686,7 +708,7 @@ const Hero = () => {
               padding: 90px 0 40px 0;
             }
           }
-          
+
           @media (min-width: 769px) and (max-width: 1199px) {
             section {
               height: auto !important;
@@ -694,7 +716,7 @@ const Hero = () => {
               padding: 80px 0 40px 0;
             }
           }
-          
+
           @media (min-width: 1200px) {
             section {
               height: 688px;
