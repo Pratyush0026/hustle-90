@@ -279,7 +279,7 @@ const EmailSubscription = () => {
           whileTap={{ scale: status === "loading" ? 1 : 0.98 }}
         >
           <motion.div
-            className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+            className="absolute inset-0 bg-gradient-to-r from-gray-900 to-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             style={{ borderRadius: "1rem" }}
           />
           <span className="relative z-10 flex items-center justify-center">
