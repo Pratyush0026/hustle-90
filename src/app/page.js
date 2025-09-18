@@ -1,4 +1,3 @@
-// app/page.js
 import MVPComponent from '@/components/MVPComponent';
 import Header from '../components/Header';
 import Hero from '../components/Hero';
@@ -13,6 +12,7 @@ import FeaturesSection from '@/components/FeaturesSection';
 import KeyBenefitsSection from '@/components/KeyBenefitsSection';
 import AboutSection from '@/components/AboutSection';
 import HowItWorksSection from '@/components/HowItWorkssection';
+import BlogSection from '@/components/BlogSection';
 
 
 export default function Home() {
@@ -27,6 +27,7 @@ export default function Home() {
       <KeyBenefitsSection/>
       <AboutSection/>
       <HowItWorksSection/>
+      <BlogSection/>
       <PricingComponent/>
       <TestimonialsSection/>
       <FAQSection/>
