@@ -50,11 +50,11 @@ const AboutSection = () => {
   });
 
   const text = "Hustle90 was built on one simple truth: outcomes speak louder than promises. We set out to fix the broken path from idea to MVP no more delays, misalignment, or wasted resources. Our mission is to give serious founders an unfair advantage by combining senior strategy with AI-powered execution. In under 90 days, we deliver investor-ready MVPs fast, focused, and equity-free. We don't sell services. We deliver outcomes.";
-  
+
   const words = text.split(' ');
 
   return (
-    <section ref={sectionRef} className="w-full max-w-[1233px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0">
+    <section id="about" ref={sectionRef} className="w-full max-w-[1233px] mx-auto px-4 sm:px-6 lg:px-8 xl:px-0">
       <div className="relative w-full lg:min-h-[783px] rounded-[25px] sm:rounded-[35px] lg:rounded-[50px] bg-gradient-to-b from-orange-500/45 to-orange-500/45 overflow-hidden">
         {/* Background image */}
         <div

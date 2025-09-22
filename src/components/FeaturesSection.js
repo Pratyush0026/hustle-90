@@ -109,7 +109,7 @@
 //                     <h3 className="text-black font-dmSans text-2xl sm:text-3xl lg:text-[34px] font-medium leading-tight lg:leading-[50px] tracking-[-2px]">
 //                       {feature.whatYouGet}
 //                     </h3>
-                    
+
 //                     {/* Feature Points */}
 //                     <ul className="space-y-3 lg:space-y-4">
 //                       {feature.points.map((point, pointIndex) => (
@@ -176,7 +176,7 @@ const FeaturesSection = () => {
       whatYouGet: "What you get:",
       points: [
         "Product Validation",
-        "MVP Development", 
+        "MVP Development",
         "Launch In Less Than 90 Days"
       ],
       image: "/assets/validate-product.png",
@@ -215,7 +215,7 @@ const FeaturesSection = () => {
   ];
 
   return (
-    <section ref={containerRef} className="w-full bg-white py-12 lg:py-20">
+    <section id="features" ref={containerRef} className="w-full bg-white py-12 lg:py-20">
       <div className="container mx-auto px-4 lg:px-6">
         {/* Header Badge */}
         <div className="flex justify-center mb-8 lg:mb-12">
@@ -243,7 +243,7 @@ const FeaturesSection = () => {
         {/* Feature Cards - Simple Stacking */}
         <div className="max-w-7xl mx-auto">
           {features.map((feature, index) => (
-            <div 
+            <div
               key={feature.id}
               className="w-full rounded-2xl border border-white bg-[#fdf3ec] p-6 lg:p-12 sticky mb-8 lg:mb-12"
               style={{
@@ -251,9 +251,8 @@ const FeaturesSection = () => {
                 zIndex: index + 1
               }}
             >
-              <div className={`flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 ${
-                index % 2 === 1 ? 'lg:flex-row-reverse' : ''
-              }`}>
+              <div className={`flex flex-col lg:flex-row items-start lg:items-center gap-8 lg:gap-12 ${index % 2 === 1 ? 'lg:flex-row-reverse' : ''
+                }`}>
                 {/* Content Section */}
                 <div className="flex-1 space-y-6 lg:space-y-8">
                   {/* Title */}
@@ -277,7 +276,7 @@ const FeaturesSection = () => {
                     <h3 className="text-black font-dmSans text-2xl sm:text-3xl lg:text-[34px] font-medium leading-tight lg:leading-[50px] tracking-[-2px]">
                       {feature.whatYouGet}
                     </h3>
-                    
+
                     {/* Feature Points */}
                     <ul className="space-y-3 lg:space-y-4">
                       {feature.points.map((point, pointIndex) => (

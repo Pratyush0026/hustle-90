@@ -630,8 +630,8 @@ const Hero = () => {
               To Demo Day Ready MVP With Battle Tested Systems, AI-Driven Speed, And Full-Stack Execution.
             </p> */}
 
-            <h1 className="text-black text-center font-medium leading-tight px-4 sm:px-0">
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl">
+            <h1 className="text-black text-center font-medium leading-tight px-4 sm:px-6">
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl">
                 <BlurText
                   text="Build. Launch. Validate."
                   delay={0}
@@ -640,7 +640,7 @@ const Hero = () => {
                   stepDuration={0.3}
                 />
               </div>
-              <div className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl 2xl:text-8xl mt-2 lg:mt-4">
+              <div className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl mt-2 lg:mt-4">
                 <BlurText
                   text="A revenue-ready MVP in 90 days."
                   delay={0}

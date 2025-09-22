@@ -11,7 +11,7 @@ import Footer from '@/components/Footer';
 import FeaturesSection from '@/components/FeaturesSection';
 import KeyBenefitsSection from '@/components/KeyBenefitsSection';
 import AboutSection from '@/components/AboutSection';
-import HowItWorksSection from '@/components/HowItWorkssection';
+// import HowItWorksSection from '@/components/HowItWorkssection';
 import BlogSection from '@/components/BlogSection';
 
 
@@ -20,19 +20,19 @@ export default function Home() {
     <main>
       <Header />
       <Hero />
-      <MVPComponent/>
+      <MVPComponent />
       {/* <MVPComponent2/> */}
-      <FeaturesSection/>
+      <FeaturesSection />
 
-      <KeyBenefitsSection/>
-      <AboutSection/>
-      <HowItWorksSection/>
-      <BlogSection/>
-      <PricingComponent/>
-      <TestimonialsSection/>
-      <FAQSection/>
-      <MarqueeSection/>
-      <Footer/>
+      <KeyBenefitsSection />
+      <AboutSection />
+      {/* <HowItWorksSection/> */}
+      <BlogSection />
+      <PricingComponent />
+      <TestimonialsSection />
+      <FAQSection />
+      <MarqueeSection />
+      <Footer />
     </main>
   );
 }

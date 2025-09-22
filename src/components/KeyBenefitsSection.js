@@ -212,7 +212,7 @@ const KeyBenefitsSection = () => {
   ];
 
   return (
-    <section className="w-full bg-white py-12 lg:py-20">
+    <section id="benefits" className="w-full bg-white py-12 lg:py-20">
       <div className="container mx-auto px-4 lg:px-6">
         {/* Header Badge */}
         <div className="flex justify-center mb-8 lg:mb-12">
