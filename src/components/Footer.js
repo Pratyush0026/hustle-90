@@ -70,7 +70,7 @@ const Footer = () => {
   };
 
   return (
-    <footer  className="w-full relative overflow-hidden text-white">
+    <footer className="w-full mx-auto my-6 rounded-3xl max-w-[1400px] relative overflow-hidden text-white">
       {/* Gradient Background with Ball Effects */}
       <div className="absolute inset-0 bg-black overflow-hidden">
         {/* Top Left Gradient Ball */}

@@ -65,7 +65,7 @@ const BlogSection = () => {
   }
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-white">
+    <section id="blog" className="py-12 md:py-16 lg:py-20 px-4 md:px-8 lg:px-16 bg-white">
       <div className="max-w-7xl mx-auto">
         {/* Blog Tag */}
         <div className="mb-8 md:mb-12">
@@ -90,7 +90,7 @@ const BlogSection = () => {
           </h2>
 
           <Link
-            href="/blog"
+            href="/blogs"
             className="inline-flex justify-center items-center px-8 md:px-12 lg:px-[52px] py-3 md:py-4 lg:py-[18px] text-sm md:text-base font-medium text-gray-700 bg-white border border-[#E6E6E6] rounded-lg hover:bg-gray-50 transition-colors self-start lg:self-center"
           >
             Explore All
@@ -157,7 +157,7 @@ const BlogSection = () => {
                   {/* Blog Title */}
                   <h3
                     className="text-[#1B0C25] text-xl md:text-2xl lg:text-[28px] font-medium leading-tight group-hover:text-[#FF5A00] transition-colors"
-                    style={{ fontFamily: 'Inter' }}
+                    style={{ fontFamily: 'DM Sans' }}
                   >
                     {title}
                   </h3>
