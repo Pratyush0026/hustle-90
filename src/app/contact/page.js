@@ -1,13 +1,16 @@
-"use client";
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
+import ContactNew from '@/components/ContactNew'
+import Footer from '@/components/Footer'
+import MarqueeSection from '@/components/MarqueeSection'
+import React from 'react'
 
-export default function ContactPage() {
-  const router = useRouter();
-
-  useEffect(() => {
-    router.replace("/coming-soon");
-  }, [router]);
-
-  return null;
+const Page = () => {
+    return (
+        <div>
+            <ContactNew/>
+            <MarqueeSection />
+            <Footer />
+        </div>
+    )
 }
+
+export default Page
