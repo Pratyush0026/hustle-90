@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Block Vercel preview/staging URLs
+User-agent: *
+Disallow: /*.vercel.app/
+
+# Sitemap
+Sitemap: https://hustle90.com/sitemap.xml
+Sitemap: https://hustle90.com/image-sitemap.xml
