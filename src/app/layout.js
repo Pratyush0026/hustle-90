@@ -28,7 +28,6 @@
 //   );
 // }
 
-
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Breadcrumbs from '@/components/Breadcrumbs';
@@ -49,6 +48,18 @@ export const metadata = {
   description: "Build and validate your MVP faster with AI-powered tools. Connect data, analyze, optimize, and track your startup's progress in one platform.",
   keywords: "MVP, startup, AI, product development, pitch deck, investment tracker",
   authors: [{ name: "Hustle90" }],
+
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+  },
+
   openGraph: {
     title: "Hustle90 - AI-Powered MVP Development Platform",
     description: "Build and validate your MVP faster with AI-powered tools.",
@@ -82,9 +93,9 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <div className="">
-            <Breadcrumbs />
+          <Breadcrumbs />
         </div>
-      
+
         {children}
         <SpeedInsights />
       </body>
