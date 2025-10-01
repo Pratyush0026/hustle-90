@@ -38,7 +38,7 @@ export default async function BlogPost({ params }) {
         <div className="text-center">
           <h1 className="text-4xl font-bold text-[#1B0C25] mb-4">Blog Post Not Found</h1>
           <p className="text-gray-600 mb-8">The blog post you're looking for doesn't exist.</p>
-          <Link 
+          <Link
             href="/"
             className="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-[#FF5A00] rounded-lg hover:bg-[#E6651F] transition-colors"
           >
@@ -54,21 +54,21 @@ export default async function BlogPost({ params }) {
 
   const formatDate = (dateString) => {
     const date = new Date(dateString)
-    return date.toLocaleDateString('en-US', { 
-      month: 'long', 
-      day: 'numeric', 
-      year: 'numeric' 
+    return date.toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric'
     })
   }
 
-  let h3Counter = 0 
-  
+  let h3Counter = 0
+
   const renderOptions = {
     renderNode: {
       [BLOCKS.HEADING_2]: (node, children) => (
-        <h2 
+        <h2
           className="text-left mb-8 md:mb-12 mt-16 md:mt-20 lg:mt-24 first:mt-0"
-          style={{ 
+          style={{
             fontFamily: 'DM Sans',
             fontSize: '65px',
             fontWeight: '600',
@@ -82,11 +82,11 @@ export default async function BlogPost({ params }) {
       [BLOCKS.HEADING_3]: (node, children) => {
         h3Counter++
         const isEven = h3Counter % 2 === 0
-        
+
         return (
-          <h3 
+          <h3
             className={`text-left mb-4 md:mb-6 ${isEven ? 'pl-4 md:pl-6 lg:pl-8' : ''}`}
-            style={{ 
+            style={{
               fontFamily: 'Poppins',
               fontSize: '21px',
               fontWeight: '500',
@@ -101,11 +101,11 @@ export default async function BlogPost({ params }) {
       },
       [BLOCKS.PARAGRAPH]: (node, children) => {
         const isAfterEvenH3 = h3Counter % 2 === 0
-        
+
         return (
-          <p 
+          <p
             className={`text-left mb-8 md:mb-12 ${isAfterEvenH3 ? 'pl-4 md:pl-6 lg:pl-8' : ''}`}
-            style={{ 
+            style={{
               fontFamily: 'Poppins',
               fontSize: '21px',
               fontWeight: '400',
@@ -118,6 +118,49 @@ export default async function BlogPost({ params }) {
           </p>
         )
       },
+      [BLOCKS.UL_LIST]: (node, children) => {
+        const isAfterEvenH3 = h3Counter % 2 === 0
+
+        return (
+          <ul
+            className={`text-left mb-8 md:mb-12 ${isAfterEvenH3 ? 'pl-8 md:pl-10 lg:pl-12' : 'pl-6 md:pl-8 lg:pl-10'}`}
+            style={{
+              fontFamily: 'Poppins',
+              fontSize: '21px',
+              fontWeight: '400',
+              lineHeight: '1.6',
+              color: '#000',
+              listStyleType: 'none'
+            }}
+          >
+            {children}
+          </ul>
+        )
+      },
+      [BLOCKS.LIST_ITEM]: (node, children) => (
+        <li
+          className="mb-2 md:mb-3 relative pl-6"
+          style={{
+            fontFamily: 'Poppins',
+            fontSize: '21px',
+            fontWeight: '400',
+            lineHeight: '1.6',
+            color: '#000'
+          }}
+        >
+          <span
+            className="absolute left-0 top-0"
+            style={{
+              color: '#FF5A00',
+              fontSize: '24px',
+              lineHeight: '1.6'
+            }}
+          >
+            •
+          </span>
+          {children}
+        </li>
+      ),
     }
   }
 
@@ -126,7 +169,7 @@ export default async function BlogPost({ params }) {
       <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
         <div className="pt-8 md:pt-12 lg:pt-16 mb-6 md:mb-8 text-center">
           {category && (
-            <span 
+            <span
               className="inline-flex justify-center items-center px-6 md:px-8 lg:px-[26px] py-2 md:py-3 lg:py-[8px] text-sm md:text-base font-medium text-[#E6651F] bg-white rounded-full"
               style={{
                 border: '1.13px solid #E6651F',
@@ -140,7 +183,7 @@ export default async function BlogPost({ params }) {
         </div>
 
         <div className="mb-6 md:mb-8 lg:mb-10">
-          <h1 
+          <h1
             className="text-[#1B0C25] text-center text-3xl md:text-5xl lg:text-[85px] font-semibold leading-tight md:leading-[1.2] lg:leading-[79px] max-w-5xl mx-auto px-4"
             style={{ fontFamily: 'DM Sans' }}
           >
@@ -149,7 +192,7 @@ export default async function BlogPost({ params }) {
         </div>
 
         <div className="mb-8 md:mb-12 lg:mb-16 text-center">
-          <p 
+          <p
             className="text-[#757474] text-base md:text-lg lg:text-[18px] font-semibold"
             style={{ fontFamily: 'DM Sans' }}
           >
@@ -173,20 +216,20 @@ export default async function BlogPost({ params }) {
         )}
 
         <div className="max-w-5xl mx-auto pb-16 md:pb-20 lg:pb-24">
-          
+
           {content ? (
             <div className="space-y-0">
               {documentToReactComponents(content, renderOptions)}
             </div>
           ) : (
             <div className="space-y-8 md:space-y-12 animate-pulse">
-              
+
               <div className="mb-8 md:mb-12">
                 <div className="h-12 md:h-16 lg:h-20 bg-gray-200 rounded-lg w-3/4"></div>
               </div>
 
               <div className="space-y-8 md:space-y-12">
-                
+
                 <div className="space-y-4 md:space-y-6">
                   <div className="h-6 md:h-7 lg:h-8 bg-gray-200 rounded w-1/3"></div>
                   <div className="space-y-3">
@@ -229,7 +272,7 @@ export default async function BlogPost({ params }) {
                 </div>
 
                 <div className="space-y-8 md:space-y-12">
-                  
+
                   <div className="space-y-4 md:space-y-6">
                     <div className="h-6 md:h-7 lg:h-8 bg-gray-200 rounded w-1/4"></div>
                     <div className="space-y-3">
@@ -248,7 +291,7 @@ export default async function BlogPost({ params }) {
 
                 </div>
               </div>
-              
+
             </div>
           )}
 
